@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# RemindMe
 
-First, run the development server:
+RemindMe is a simple, smart, and secure reminder app designed for students and professionals who want to stay organized without the clutter.  
+Track your tasks, bills, subscriptions, and deadlines effortlessly — and never miss what matters.
+
+---
+
+##  Features
+
+- **Quick Reminder Creation** – Add reminders in seconds with a clean, intuitive interface.  
+- **Email & Web Notifications** – Get timely alerts exactly when you need them.  
+- **Organized Dashboard** – View and manage all upcoming tasks in one place.  
+- **Secure by Design** – Your data stays private and encrypted.  
+- **Responsive & Fast** – Optimized for all devices with a smooth user experience.
+
+---
+
+##  How It Works
+
+1. **Add your reminders** — Enter your task, bill, or event.  
+2. **Set the time** — Choose when you’d like to be reminded.  
+3. **Get notified** — Receive reminders via email or browser alerts.  
+4. **Stay on track** — Manage and edit all reminders from your dashboard.
+
+---
+
+##  Tech Stack
+
+* **Framework:** [Next.js 15 (App Router + Turbopack)](https://nextjs.org/)
+  Modern React framework with hybrid rendering, file-based routing, and high performance using Turbopack.
+
+* **Database & Backend:** [Convex](https://www.convex.dev/)
+  Serverless backend for real-time data, storage, and queries — no need for custom APIs.
+
+* **Authentication:** [NextAuth.js](https://next-auth.js.org/)
+  Secure, flexible authentication supporting email, OAuth, and credentials.
+
+* **UI Library:** [Tailwind CSS](https://tailwindcss.com/)
+  Utility-first CSS framework for fast, responsive design.
+
+* **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+  Beautiful, accessible, and customizable React components built on Radix UI and Tailwind.
+
+* **Animations:** [Framer Motion](https://www.framer.com/motion/)
+  Smooth, interactive animations and transitions for a polished experience.
+
+* **Email Rendering:** [React Email](https://react.email/)
+  Write and preview responsive email templates using React components.
+
+* **Email Delivery:** [Resend](https://resend.com/)
+  Reliable and developer-friendly email API for sending reminders and transactional emails.
+
+* **Deployment:** [Vercel](https://vercel.com/)
+  Fast, serverless deployment platform with automatic builds, previews, and edge functions.
+
+---
+
+##  Getting Started
+
+### Prerequisites
+Make sure you have the following installed:
+- Node.js `>=18`
+- pnpm (recommended) or npm/yarn
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/annuk123/RemindMe.git
+
+# Navigate to the project folder
+cd RemindMe
+
+# Install dependencies
+pnpm install
+````
+
+### Environment Variables
+
+Create a `.env.local` file in the project root and add your environment variables:
+
+```bash
+NEXT_PUBLIC_CONVEX_URL=your_convex_url
+NEXTAUTH_SECRET=your_secret
+NEXTAUTH_URL=http://localhost:3000
+RESEND_API_KEY=your_resend_api_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run the Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  Folder Structure
 
-## Deploy on Vercel
+```
+RemindMe/
+├── app/                 # Next.js App Router pages
+├── components/          # Reusable UI components
+├── convex/              # Convex backend functions & schema
+├── lib/                 # Helpers, configs, utilities
+├── public/              # Static assets
+├── styles/              # Global styles
+├── .env.local           # Environment variables
+└── next.config.ts       # Next.js configuration
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##  Feedback & Support
+
+We’d love to hear your thoughts!
+If you have feedback, feature ideas, or encounter a bug, you can:
+
+* Submit feedback directly inside the app
+
+---
+
+##  License
+
+This project is licensed under the **MIT License**.
+You’re free to use, modify, and distribute it with attribution.
+
+---
+
+##  About the Creator
+
+Built with care by **Annu**, an indie hacker passionate about creating clean, purposeful, and human-centered web apps.
+Focused on simplicity, polish, and meaningful products — not corporate noise.
+
+---
