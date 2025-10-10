@@ -2,7 +2,7 @@ import { mutation, query, internalMutation } from "./_generated/server";
 import { v } from "convex/values";
 import { internal } from "./_generated/api";
 
-// ✅ Create reminder
+// Create reminder
 export const createReminder = mutation({
   args: {
     userId: v.id("users"),
@@ -12,7 +12,7 @@ export const createReminder = mutation({
      timeZone: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
-    // 🕒 Convert local datetime string to ISO (UTC)
+    //  Convert local datetime string to ISO (UTC)
     const remindAtIso = new Date(args.remindAt).toISOString();
 
     await ctx.db.insert("reminders", {
@@ -25,11 +25,11 @@ export const createReminder = mutation({
       sent: false, // prevents duplicate emails
     });
 
-    console.log("✅ Reminder created for:", args.userId, "at", remindAtIso);
+    console.log("Reminder created for:", args.userId, "at", remindAtIso);
   },
 });
 
-// ✅ Fetch reminders by user
+// Fetch reminders by user
 export const getRemindersByUser = query({
   args: { userId: v.id("users") },
   handler: async (ctx, args) => {
@@ -41,7 +41,7 @@ export const getRemindersByUser = query({
   },
 });
 
-// ✅ Delete reminder
+// Delete reminder
 export const deleteReminder = mutation({
   args: { reminderId: v.id("reminders") },
   handler: async (ctx, args) => {
@@ -50,10 +50,10 @@ export const deleteReminder = mutation({
   },
 });
 
-// ✅ Process due reminders — checks all reminders, sends emails if due
+//  Process due reminders — checks all reminders, sends emails if due
 export const processDueReminders = internalMutation({
   handler: async (ctx) => {
-    console.log("🚀 processDueReminders started at", new Date().toISOString());
+    console.log(" processDueReminders started at", new Date().toISOString());
 
     const reminders = await ctx.db.query("reminders").collect();
     console.log(`🔎 Found ${reminders.length} reminders in DB`);
@@ -78,7 +78,7 @@ export const processDueReminders = internalMutation({
         console.log("🧍 Resolved user:", user ? user.email : "not found");
 
         if (user?.email) {
-          // 📨 Trigger email via internal action
+          //  Trigger email via internal action
           await ctx.scheduler.runAfter(0, internal.actions.sendReminderEmail, {
             to: user.email,
             title: r.title,
@@ -91,7 +91,7 @@ export const processDueReminders = internalMutation({
           console.log("⚠️ No email found for reminder:", r._id);
         }
 
-        // 🏷️ Mark reminder as sent (prevents duplicate sends)
+        //  Mark reminder as sent (prevents duplicate sends)
         await ctx.db.patch(r._id, { sent: true });
         console.log("✂️ Marked as sent:", r._id);
       }

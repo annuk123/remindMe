@@ -15,7 +15,7 @@ export default defineSchema({
     description: v.optional(v.string()),
     remindAt: v.string(), // ISO date-time string
      timeZone: v.optional(v.string()),
-    sent: v.optional(v.boolean()), // 🆕 Add this field
+    sent: v.optional(v.boolean()), 
     createdAt: v.number(),
   }).index("by_user", ["userId"]),
 

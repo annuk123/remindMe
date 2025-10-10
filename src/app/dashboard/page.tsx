@@ -8,30 +8,30 @@ import { toast } from "sonner";
 import CreateReminderModal from "@/components/CreateReminderModal/CreateReminderModal";
 import { api } from "../../../convex/_generated/api";
 import { useQuery, useMutation } from "convex/react";
-import { formatLocalTime } from "@/lib/formatLocalTime"; // ✅ imported helper
+import { formatLocalTime } from "@/lib/formatLocalTime"; 
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // 🧠 Redirect if not logged in
+  //  Redirect if not logged in
   if (status === "unauthenticated") {
     router.push("/login");
   }
 
-  // 🕒 Get logged-in user's data (reactively)
+  //  Get logged-in user's data (reactively)
   const user = useQuery(api.users.getUserByEmail, {
     email: session?.user?.email ?? "",
   });
 
-  // 🔄 Real-time reminders for user
+  // Real-time reminders for user
   const reminders = useQuery(
     api.reminders.getRemindersByUser,
     user ? { userId: user._id } : "skip"
   );
 
-  // ⚡ Mutations
+  //  Mutations
   const deleteReminder = useMutation(api.reminders.deleteReminder);
 
   if (status === "loading" || reminders === undefined) {
@@ -99,7 +99,7 @@ export default function DashboardPage() {
           ) : (
             <div className="grid gap-4 mt-8">
               {reminders.map((r) => {
-                // 🕒 Convert to user’s local time using shared helper
+                //  Convert to user’s local time using shared helper
                 const localTime = formatLocalTime(r.remindAt, r.timeZone);
 
                 return (

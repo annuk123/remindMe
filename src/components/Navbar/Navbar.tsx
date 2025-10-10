@@ -21,7 +21,7 @@ export default function Navbar() {
     { href: "/features", label: "Features" },
     { href: "/how-it-works", label: "How It Works" },
     { href: "/about", label: "About" },
-    { href: "/contact-us", label: "Contact Us" }, // ✅ Replaces Pricing
+    { href: "/contact-us", label: "Contact Us" }, 
   ];
 
   return (

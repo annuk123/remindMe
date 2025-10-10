@@ -1,7 +1,7 @@
 import { action } from "./_generated/server";
 import { v } from "convex/values";
 import bcrypt from "bcryptjs";
-import { api } from "./_generated/api"; // ✅ import generated API types
+import { api } from "./_generated/api"; 
 import { internalAction } from "./_generated/server";
 import { Resend } from "resend";
 import ReminderEmail from "../src/components/emails/ReminderEmail"; 
@@ -14,8 +14,7 @@ export const createUserAction = action({
   args: { name: v.string(), email: v.string(), password: v.string() },
   handler: async (ctx, args) => {
     const hashed = await bcrypt.hash(args.password, 10);
-
-    // ✅ use typed mutation reference from api
+    
     await ctx.runMutation(api.users.createUser, {
       name: args.name,
       email: args.email,
@@ -30,7 +29,6 @@ export const updateUserPasswordAction = action({
   handler: async (ctx, args) => {
     const hashed = await bcrypt.hash(args.password, 10);
 
-    // ✅ use typed mutation reference from api
     await ctx.runMutation(api.users.updateUserPassword, {
       userId: args.userId,
       password: hashed,
@@ -49,7 +47,7 @@ export const sendReminderEmail = internalAction({
   },
   handler: async (ctx, args) => {
     try {
-      // ✅ await render() because it returns a Promise<string>
+      // await render() because it returns a Promise<string>
       const emailHtml = await render(
         ReminderEmail({
           title: args.title,
@@ -63,7 +61,7 @@ export const sendReminderEmail = internalAction({
         from: "RemindMe <onboarding@resend.dev>",
         to: args.to,
         subject: `⏰ Reminder: ${args.title}`,
-        html: emailHtml, // ✅ now a string, not Promise<string>
+        html: emailHtml, //  now a string, not Promise<string>
       });
 
 

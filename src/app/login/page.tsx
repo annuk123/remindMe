@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Loader2, Bell } from "lucide-react"; // for loading icon
+import { Loader2, Bell } from "lucide-react"; 
 import Link from "next/link";
 
 export default function AuthPage() {

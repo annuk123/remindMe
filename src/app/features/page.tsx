@@ -125,7 +125,7 @@ export default function FeaturesPage() {
             </p>
             <div className="relative rounded-2xl overflow-hidden border border-blue-100 shadow-md">
               <Image
-                src="/preview-dashboard.png" // your demo screenshot
+                src="/preview-dashboard.png" 
                 alt="RemindMe dashboard preview"
                 className="w-full object-cover"
               />

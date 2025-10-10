@@ -19,10 +19,10 @@ export default function FeedbackPage() {
     setStatus("sending");
 
     try {
-      // 1️⃣ Save to Convex
+      //  Save to Convex
       await addFeedback(form);
 
-      // 2️⃣ Send email to you
+      // Send email to you
       await fetch("/api/send-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -5,7 +5,7 @@ import ReminderEmail from "@/components/emails/ReminderEmail";
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function GET() {
-  // ✅ Add 'await' here
+  // Add 'await' here
   const emailHtml = await render(
     ReminderEmail({
       title: "Test Reminder — It Works 🎉",
@@ -17,9 +17,9 @@ export async function GET() {
   try {
     await resend.emails.send({
       from: "RemindMe <onboarding@resend.dev>",
-      to: "anuk35168@gmail.com", // 👈 your test email here
+      to: "anuk35168@gmail.com", 
       subject: "🔔 Test Reminder Email",
-      html: emailHtml, // ✅ now a string, not a Promise
+      html: emailHtml, // now a string, not a Promise
     });
 
     return Response.json({

@@ -33,7 +33,7 @@ const formatShort = (iso: string) =>
   new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 
 // example subscription (replace with real data)
-const sampleSubscriptionISO = "2025-10-15"; // <-- replace this with actual expiry
+const sampleSubscriptionISO = "2025-10-15"; 
 const sampleSubscriptionName = "Figma Pro";
 
   const steps = [

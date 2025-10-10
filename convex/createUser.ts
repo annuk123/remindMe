@@ -9,7 +9,7 @@ export const createUser = mutation({
     await ctx.db.insert("users", {
       name: args.name,
       email: args.email,
-      password: hashed, // ✅ store hashed password
+      password: hashed, // store hashed password
       createdAt: Date.now(),
     });
   },

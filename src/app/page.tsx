@@ -52,7 +52,7 @@ const formatShort = (iso: string) =>
   new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 
 // example subscription (replace with real data)
-const sampleSubscriptionISO = "2025-10-15"; // <-- replace this with actual expiry
+const sampleSubscriptionISO = "2025-10-15"; 
 const sampleSubscriptionName = "Figma Pro";
 
   return (
@@ -116,7 +116,6 @@ const sampleSubscriptionName = "Figma Pro";
       </section>
 
       {/* Floating Reminder Cards Section */}
-{/* Updated Floating Reminder Cards Section (with subscription expiry) */}
 <section ref={scrollRef} className="relative py-40 bg-transparent overflow-hidden">
   <h2 className="text-center text-4xl sm:text-5xl font-bold mb-20 text-slate-900">
     💭 Real-Life Reminders We All Forget

@@ -16,7 +16,7 @@ export default function Footer() {
           transition={{ duration: 0.4 }}
         >
           <h3 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Never forget what matters. ✨
+            Never forget what matters. 
           </h3>
           <p className="text-slate-600 mb-6 max-w-xl mx-auto">
             Stay ahead of deadlines, tasks, and goals with{" "}
@@ -106,17 +106,17 @@ export default function Footer() {
   {[
     {
       Icon: Twitter,
-      href: "https://x.com/Annu66126617", // 🔗 replace with your Twitter/X
+      href: "https://x.com/Annu66126617", 
       label: "Twitter",
     },
     {
       Icon: Linkedin,
-      href: "https://www.linkedin.com/in/annu-kumari-540337237/", // 🔗 replace with your LinkedIn
+      href: "https://www.linkedin.com/in/annu-kumari-540337237/", 
       label: "LinkedIn",
     },
     {
       Icon: Mail,
-      href: "mailto:anuk35168@gmail.com", // 🔗 or your contact email
+      href: "mailto:anuk35168@gmail.com",
       label: "Email",
     },
   ].map(({ Icon, href, label }, i) => (
