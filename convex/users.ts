@@ -1,19 +1,19 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import type { UserType } from "./types/user";
 
-// Fetch user by email
 export const getUserByEmail = query({
   args: { email: v.string() },
-  handler: async (ctx, args) => {
-    const user = await ctx.db
-      .query("users")
-      .withIndex("by_email", (q) => q.eq("email", args.email))
-      .unique();
-    return user || null;
+  handler: async (ctx, args): Promise<UserType | null> => {
+    return (
+      (await ctx.db
+        .query("users")
+        .withIndex("by_email", (q) => q.eq("email", args.email))
+        .unique()) || null
+    );
   },
 });
 
-// DB-only create user (called from actions)
 export const createUser = mutation({
   args: { name: v.string(), email: v.string(), password: v.string() },
   handler: async (ctx, args) => {
@@ -24,6 +24,7 @@ export const createUser = mutation({
 
     if (existing) throw new Error("User already exists");
 
+    // ✅ Just store password hash directly
     await ctx.db.insert("users", {
       name: args.name,
       email: args.email,

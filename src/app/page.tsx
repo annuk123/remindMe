@@ -27,18 +27,14 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
+
   // Scroll animation reference
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollRef,
-    offset: ["start end", "end start"],
-  });
+  const { scrollYProgress } = useScroll({ target: scrollRef, offset: ["start end", "end start"], });
 
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [200, -150]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [300, -200]);
-
+const y1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
+const y2 = useTransform(scrollYProgress, [0, 1], [40, -40]);
+const y3 = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
 // Helper functions for date formatting
 const toMidnight = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -108,7 +104,7 @@ const sampleSubscriptionName = "Figma Pro";
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           <span className="text-sm font-semibold text-blue-600 mb-2 block">
-            🧠 Smart Reminder
+            Smart Reminder
           </span>
           {typedText}
           <span className="animate-pulse text-blue-500">|</span>
@@ -116,81 +112,115 @@ const sampleSubscriptionName = "Figma Pro";
       </section>
 
       {/* Floating Reminder Cards Section */}
-<section ref={scrollRef} className="relative py-40 bg-transparent overflow-hidden">
-  <h2 className="text-center text-4xl sm:text-5xl font-bold mb-20 text-slate-900">
+<section
+  ref={scrollRef}
+  className="relative py-36 bg-transparent overflow-hidden"
+>
+  <h2 className="text-center text-4xl sm:text-5xl font-bold mb-24 text-slate-900">
     💭 Real-Life Reminders We All Forget
   </h2>
 
   <div className="relative h-[600px] max-w-6xl mx-auto">
-    {/* 1 - Assignment */}
+ {/* 1 - Assignment */}
+  <motion.div
+    style={{ y: y1 }}
+    className="absolute top-[10px] left-[12%] bg-white/90 backdrop-blur-xl border border-sky-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(14,165,233,0.05)] hover:shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      📚 Submit React Project
+    </p>
+    <p className="text-xs  text-sky-600 mt-1">
+      Tomorrow • 10:00 AM
+    </p>
+  </motion.div>
+
+  {/* 2 - Team Meeting */}
+  <motion.div
+    style={{ y: y2 }}
+    className="absolute top-[130px] right-[14%] bg-white/90 backdrop-blur-xl border border-indigo-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(99,102,241,0.05)] hover:shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      👩‍💻 Team Sync Call
+    </p>
+    <p className="text-xs  text-indigo-600 mt-1">
+      Today • 3:00 PM
+    </p>
+  </motion.div>
+
+  {/* 3 - Rent / Bill */}
+  <motion.div
+    style={{ y: y3 }}
+    className="absolute bottom-[40px] left-[28%] bg-white/90 backdrop-blur-xl border border-cyan-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(6,182,212,0.05)] hover:shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      💳 Pay Internet Bill
+    </p>
+    <p className="text-xs text-cyan-600 mt-1">
+      Due in 1 day
+    </p>
+  </motion.div>
+
+  {/* 4 - Client Follow-up */}
+  <motion.div
+    style={{ y: y1 }}
+    className="absolute top-[260px] left-[8%] bg-white/90 backdrop-blur-xl border border-purple-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(168,85,247,0.05)] hover:shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      📩 Follow Up with Client
+    </p>
+    <p className="text-xs text-purple-600 mt-1">
+      In 2 hours
+    </p>
+  </motion.div>
+
+  {/* 5 - Hosting Renewal */}
+  <motion.div
+    style={{ y: y2 }}
+    className="absolute bottom-[60px] right-[22%] bg-white/90 backdrop-blur-xl border border-amber-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(245,158,11,0.05)] hover:shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      🌐 Renew Domain & Hosting
+    </p>
+    <p className="text-xs text-amber-600 mt-1">
+      Expiring in 3 days
+    </p>
+  </motion.div>
+
+  {/* 6 - Workout */}
+  <motion.div
+    style={{ y: y3 }}
+    className="absolute top-[370px] left-[45%] bg-white/90 backdrop-blur-xl border border-green-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(34,197,94,0.05)] hover:shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      🏋️‍♀️ Evening Workout
+    </p>
+    <p className="text-xs text-green-600 mt-1">
+      Today • 7:00 PM
+    </p>
+  </motion.div>
+
+  {/* 7 - Birthday */}
+  <motion.div
+    style={{ y: y2 }}
+    className="absolute top-[190px] left-[45%] bg-white/90 backdrop-blur-xl border border-pink-100 rounded-2xl px-6 py-5 w-72 text-left shadow-[0_0_12px_rgba(236,72,153,0.05)] hover:shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:-translate-y-[2px] transition-all duration-300"
+  >
+    <p className="text-sm font-semibold text-slate-800 flex items-center gap-1">
+      🎂 Wish Riya Happy Birthday
+    </p>
+    <p className="text-xs text-pink-600 mt-1">
+      Today • 12:00 PM
+    </p>
+  </motion.div>
+
+
+    {/* 8 - Subscription */}
     <motion.div
       style={{ y: y1 }}
-      className="absolute top-[10px] left-[10%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
+      className="absolute top-[70px] left-[36%] bg-white/90 border border-amber-100/60 shadow-[0_4px_20px_rgba(255,193,7,0.05)] rounded-2xl px-6 py-5 w-80 text-left backdrop-blur-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
     >
-      <p className="text-sm font-medium text-slate-800">📚 Submit React Project</p>
-      <p className="text-xs text-blue-600 mt-1">Tomorrow • 10:00 AM</p>
-    </motion.div>
-
-    {/* 2 - Team Meeting */}
-    <motion.div
-      style={{ y: y2 }}
-      className="absolute top-[120px] right-[12%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">👩‍💻 Team Sync Call</p>
-      <p className="text-xs text-blue-600 mt-1">Today • 3:00 PM</p>
-    </motion.div>
-
-    {/* 3 - Rent / Bill */}
-    <motion.div
-      style={{ y: y3 }}
-      className="absolute bottom-[20px] left-[30%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">💳 Pay Internet Bill</p>
-      <p className="text-xs text-blue-600 mt-1">Due in 1 day</p>
-    </motion.div>
-
-    {/* 4 - Client Follow-up */}
-    <motion.div
-      style={{ y: y1 }}
-      className="absolute top-[250px] left-[5%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">📩 Follow Up with Client</p>
-      <p className="text-xs text-blue-600 mt-1">In 2 hours</p>
-    </motion.div>
-
-    {/* 5 - Hosting Renewal */}
-    <motion.div
-      style={{ y: y2 }}
-      className="absolute bottom-[40px] right-[20%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">🌐 Renew Domain & Hosting</p>
-      <p className="text-xs text-blue-600 mt-1">Expiring in 3 days</p>
-    </motion.div>
-
-    {/* 6 - Workout Reminder */}
-    <motion.div
-      style={{ y: y3 }}
-      className="absolute top-[380px] left-[45%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">🏋️‍♀️ Evening Workout</p>
-      <p className="text-xs text-blue-600 mt-1">Today • 7:00 PM</p>
-    </motion.div>
-
-    {/* 7 - Friend’s Birthday */}
-    <motion.div
-      style={{ y: y2 }}
-      className="absolute top-[160px] left-[55%] bg-white border border-blue-100 shadow-lg rounded-2xl px-5 py-4 w-64 text-left hover:shadow-blue-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">🎂 Wish Riya Happy Birthday</p>
-      <p className="text-xs text-blue-600 mt-1">Today • 12:00 PM</p>
-    </motion.div>
-
-    {/* 8 - Subscription Expiry (NEW) */}
-    <motion.div
-      style={{ y: y1 }}
-      className="absolute top-[60px] left-[35%] bg-white border border-amber-100 shadow-lg rounded-2xl px-5 py-4 w-72 text-left hover:shadow-amber-100/50 transition-all duration-300"
-    >
-      <p className="text-sm font-medium text-slate-800">🔔 {sampleSubscriptionName} Renewal</p>
+      <p className="text-sm font-semibold text-slate-800">
+        🔔 {sampleSubscriptionName} Renewal
+      </p>
       <p className="text-xs text-amber-600 mt-1">
         {(() => {
           const d = daysUntil(sampleSubscriptionISO);
@@ -201,9 +231,54 @@ const sampleSubscriptionName = "Figma Pro";
         })()}
       </p>
     </motion.div>
+
+        {/* 9 - Grocery List */}
+    <motion.div
+      style={{ y: y2 }}
+      className="absolute top-[310px] right-[10%] bg-white/90 border border-green-100/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-5 w-72 text-left backdrop-blur-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-sm font-semibold text-slate-800">🛒 Buy Groceries</p>
+      <p className="text-xs text-green-600 mt-1">Today • 6:30 PM</p>
+    </motion.div>
+
+    {/* 10 - Medicine Reminder */}
+    <motion.div
+      style={{ y: y1 }}
+      className="absolute top-[80px] right-[2%] bg-white/90 border border-pink-100/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-5 w-72 text-left backdrop-blur-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-sm font-semibold text-slate-800">💊 Take Evening Medicine</p>
+      <p className="text-xs text-pink-600 mt-1">Today • 8:00 PM</p>
+    </motion.div>
+
+    {/* 11 - Class Test */}
+    <motion.div
+      style={{ y: y3 }}
+      className="absolute top-[90px] right-[82%] bg-white/90 border border-indigo-100/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-5 w-72 text-left backdrop-blur-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-sm font-semibold text-slate-800">🧠 Class Test Reminder</p>
+      <p className="text-xs text-indigo-600 mt-1">Tomorrow • 9:00 AM</p>
+    </motion.div>
+
+    {/* 12 - Family Call */}
+    <motion.div
+      style={{ y: y2 }}
+      className="absolute top-[350px] right-[60%] bg-white/90 border border-purple-100/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-5 w-72 text-left backdrop-blur-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-sm font-semibold text-slate-800">📞 Call Mom</p>
+      <p className="text-xs text-purple-600 mt-1">Every Sunday • 8:00 PM</p>
+    </motion.div>
+
+    {/* 13 - Portfolio Update */}
+    <motion.div
+      style={{ y: y1 }}
+      className="absolute bottom-[120px] left-[85%] bg-white/90 border border-cyan-100/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-5 w-72 text-left backdrop-blur-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-sm font-semibold text-slate-800">💼 Update Portfolio</p>
+      <p className="text-xs text-cyan-600 mt-1">Due this weekend</p>
+    </motion.div>
+
   </div>
 </section>
-
 
       {/* Use Cases */}
       <section className="py-24 bg-white/70 backdrop-blur-sm border-t border-blue-100">

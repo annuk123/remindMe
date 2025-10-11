@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { api } from "../../../convex/_generated/api";
-import { useMutation } from "convex/react";
+// import { api } from "../../../convex/_generated/api";
+// import { useMutation } from "convex/react";
 
 export default function FeedbackPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -12,7 +12,7 @@ export default function FeedbackPage() {
     "idle"
   );
 
-  const addFeedback = useMutation(api.feedback.addFeedback);
+  // const addFeedback = useMutation(api.feedback.addFeedback);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ export default function FeedbackPage() {
 
     try {
       //  Save to Convex
-      await addFeedback(form);
+      // await addFeedback(form);
 
       // Send email to you
       await fetch("/api/send-feedback", {

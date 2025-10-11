@@ -7,29 +7,15 @@ import {
   Heading,
   Text,
   Link,
-  Hr,
   Img,
+  Hr,
 } from "@react-email/components";
-import { formatLocalTime } from "../../lib/formatLocalTime";
 
-export default function ReminderEmail({
-  title,
-  description,
-  remindAt,
-  timeZone = "UTC",
+export default function WelcomeEmail({
+  name,
 }: {
-  title: string;
-  description?: string;
-  remindAt: string;
-  timeZone?: string;
+  name?: string;
 }) {
-  let formattedTime: string;
-  try {
-    formattedTime = formatLocalTime(remindAt, timeZone);
-  } catch {
-    formattedTime = new Date(remindAt).toLocaleString("en-US");
-  }
-
   return (
     <Html>
       <Body
@@ -51,92 +37,85 @@ export default function ReminderEmail({
             boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
           }}
         >
-          {/* 🌈 Header */}
+          {/* 🌈 Header / Branding */}
           <Section
             style={{
-              background: "linear-gradient(90deg, #4F46E5, #6366F1, #8B5CF6)",
+              background: "linear-gradient(90deg,#4F46E5,#6366F1,#8B5CF6)",
               textAlign: "center",
-              padding: "32px 24px",
+              padding: "36px 24px",
               color: "#fff",
             }}
           >
             <Img
               src="https://remindme.pixelui.studio/logo.png"
               alt="RemindMe Logo"
-              width="48"
-              height="48"
+              width="56"
+              height="56"
               style={{
-                borderRadius: "12px",
-                marginBottom: "12px",
+                borderRadius: "14px",
+                marginBottom: "14px",
               }}
             />
             <Heading
               style={{
-                fontSize: "24px",
+                fontSize: "26px",
                 fontWeight: "700",
                 margin: 0,
-                letterSpacing: "-0.4px",
+                letterSpacing: "-0.3px",
               }}
             >
-              Your Smart Reminder Has Arrived 💌
+              Welcome to RemindMe 🎉
             </Heading>
           </Section>
 
-          {/* 🪄 Content */}
-          <Section style={{ padding: "32px 40px 24px" }}>
+          {/* 👋 Intro Section */}
+          <Section style={{ padding: "36px 40px 20px" }}>
             <Text
               style={{
                 fontSize: "16px",
                 color: "#374151",
-                marginBottom: "20px",
                 lineHeight: "1.6",
+                marginBottom: "12px",
               }}
             >
-              Hey there 👋 — here’s your scheduled reminder. Keep moving forward —
-              small steps create big wins!
+              Hey {name ? name : "there"} 👋
+            </Text>
+
+            <Text
+              style={{
+                fontSize: "16px",
+                color: "#4B5563",
+                lineHeight: "1.7",
+                marginBottom: "20px",
+              }}
+            >
+              Welcome aboard! You’ve just joined a growing community of
+              productive minds who never miss what matters.  
+              <br />  
+              With <b>RemindMe</b>, managing your reminders becomes effortless —
+              schedule, organize, and get notified right when you need it.
             </Text>
 
             <div
               style={{
-                backgroundColor: "#F9FAFB",
+                background: "#F9FAFB",
                 border: "1px solid #E5E7EB",
                 borderRadius: "14px",
                 padding: "20px 24px",
                 marginBottom: "24px",
               }}
             >
-              <Heading
-                as="h2"
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "600",
-                  color: "#111827",
-                  margin: 0,
-                  marginBottom: "8px",
-                }}
-              >
-                {title}
-              </Heading>
-              {description && (
-                <Text
-                  style={{
-                    fontSize: "15px",
-                    color: "#4B5563",
-                    marginBottom: "8px",
-                    lineHeight: "1.5",
-                  }}
-                >
-                  {description}
-                </Text>
-              )}
               <Text
                 style={{
-                  fontSize: "14px",
-                  color: "#6B7280",
-                  fontStyle: "italic",
+                  fontSize: "15px",
+                  color: "#374151",
+                  lineHeight: "1.6",
+                  margin: 0,
                 }}
               >
-                📅 {formattedTime} ({timeZone})
+                ✅ Create reminders instantly  
+                ⏰ Receive beautifully branded email notifications  
+                🌐 Access your reminders anywhere, anytime
               </Text>
             </div>
 
@@ -144,7 +123,7 @@ export default function ReminderEmail({
               href="https://remindme.pixelui.studio/dashboard"
               style={{
                 display: "inline-block",
-                background: "linear-gradient(90deg, #4F46E5, #6366F1)",
+                background: "linear-gradient(90deg,#4F46E5,#6366F1)",
                 color: "#fff",
                 textDecoration: "none",
                 padding: "12px 28px",
@@ -152,26 +131,37 @@ export default function ReminderEmail({
                 fontWeight: "500",
                 fontSize: "15px",
                 letterSpacing: "0.3px",
-                transition: "all 0.2s ease",
               }}
             >
-              View Your Dashboard →
+              Open Your Dashboard →
             </Link>
           </Section>
 
-          <Hr style={{ borderColor: "#E5E7EB", margin: "24px 0" }} />
+          <Hr style={{ borderColor: "#E5E7EB", margin: "28px 0 16px" }} />
 
-          {/* ⚡ Footer */}
+          {/* ✨ Footer */}
           <Section style={{ textAlign: "center", padding: "0 32px 32px" }}>
             <Text
               style={{
                 fontSize: "13px",
                 color: "#9CA3AF",
-                marginBottom: "4px",
+                marginBottom: "6px",
               }}
             >
-              Powered by <b>RemindMe</b> ⚡ — your smart productivity assistant
+              You’re receiving this email because you signed up for{" "}
+              <b>RemindMe</b>.
             </Text>
+
+            <Text
+              style={{
+                fontSize: "13px",
+                color: "#9CA3AF",
+                marginBottom: "8px",
+              }}
+            >
+              Powered by <b>RemindMe</b>   
+            </Text>
+
             <Link
               href="https://remindme.pixelui.studio"
               style={{

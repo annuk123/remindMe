@@ -60,6 +60,8 @@ export default function AboutPage() {
           <div className="absolute -top-5 -left-5 w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl opacity-10 blur-2xl" />
           <Image
             src="/preview-dashboard.png"
+            width={400}
+            height={400}
             alt="RemindMe preview"
             className="rounded-2xl shadow-md border border-blue-100"
           />

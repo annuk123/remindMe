@@ -19,10 +19,16 @@ export default defineSchema({
     createdAt: v.number(),
   }).index("by_user", ["userId"]),
 
-  feedbacks: defineTable({
+  contacts: defineTable({
     name: v.string(),
     email: v.string(),
     message: v.string(),
     createdAt: v.number(),
   }),
+
+  resetTokens: defineTable({
+    userId: v.id("users"),
+    token: v.string(),
+    expiresAt: v.number(),
+  }).index("by_token", ["token"]),
 });

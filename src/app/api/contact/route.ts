@@ -11,11 +11,11 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
 
     await resend.emails.send({
-      from: "RemindMe <feedback@remindme.app>",
+      from: "RemindMe <noreply@remindme.pixelui.studio>",
       to: TO_EMAIL,
-      subject: `💬 New Feedback from ${name}`,
+      subject: `💬 New Contact from ${name}`,
       html: `
-        <h2>New Feedback Received</h2>
+        <h2>New Contact Received</h2>
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Message:</b><br>${message}</p>

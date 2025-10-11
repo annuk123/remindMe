@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, Bell } from "lucide-react";
+import { LogIn } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,11 +79,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link href="/login">
             <Button
-              variant="outline"
-              className="border-slate-300 text-slate-700 hover:border-blue-400 hover:text-blue-600 font-medium rounded-xl"
-            >
-              Log In
-            </Button>
+  variant="outline"
+  className="group relative flex items-center gap-2 border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600 rounded-xl font-medium px-4 py-2 transition-all duration-300 hover:shadow-md hover:bg-blue-50"
+>
+  <LogIn className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-blue-600" />
+  <span className="relative z-10">Sign In</span>
+  <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+</Button>
           </Link>
           <Link href="/get-started">
             <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white rounded-xl px-6 py-2 shadow-md hover:shadow-blue-200/50 transition-transform duration-300 hover:scale-[1.05]">

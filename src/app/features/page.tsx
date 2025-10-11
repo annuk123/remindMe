@@ -126,6 +126,8 @@ export default function FeaturesPage() {
             <div className="relative rounded-2xl overflow-hidden border border-blue-100 shadow-md">
               <Image
                 src="/preview-dashboard.png" 
+                width={800}
+                height={800}
                 alt="RemindMe dashboard preview"
                 className="w-full object-cover"
               />

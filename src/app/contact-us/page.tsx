@@ -10,24 +10,34 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus("sending");
 
-    try {
-      // send to /api/send-feedback (reuse same API for contact form)
-      await fetch("/api/send-feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      setForm({ name: "", email: "", message: "" });
-      setStatus("sent");
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    if (!res.ok) throw new Error("Failed to send message");
+
+    setForm({ name: "", email: "", message: "" });
+    setStatus("sent");
+
+    //  Reset status automatically after 2 seconds
+    const timer = setTimeout(() => setStatus("idle"), 2000);
+    return () => clearTimeout(timer);
+  } catch (err) {
+    console.error("❌ Error sending feedback:", err);
+    setStatus("error");
+
+    // Auto reset error state after 2 seconds too
+    const timer = setTimeout(() => setStatus("idle"), 2000);
+    return () => clearTimeout(timer);
+  }
+};
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
@@ -101,7 +111,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <p className="text-slate-500 text-sm mt-8">
+          {/* <p className="text-slate-500 text-sm mt-8">
             You can also share feature ideas directly on the{" "}
             <a
               href="/feedback"
@@ -110,7 +120,7 @@ export default function ContactPage() {
               Feedback Page
             </a>
             .
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Contact Form */}
@@ -162,7 +172,7 @@ export default function ContactPage() {
               {status === "sending"
                 ? "Sending..."
                 : status === "sent"
-                ? "✅ Message Sent!"
+                ? "Message Sent!"
                 : "Send Message"}
             </Button>
           </form>
