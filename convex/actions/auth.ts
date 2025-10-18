@@ -24,7 +24,7 @@ export const sendResetPasswordEmail = action({
     });
 
     // 4️⃣ Send reset email
-    const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL}/reset-password?token=${token}`;
+    const resetUrl = `${process.env.NEXTAUTH_URL}/reset?token=${token}`;
     await ctx.runAction(api.actions.email.sendResetPasswordEmail, {
       to: email,
       name: user.name,

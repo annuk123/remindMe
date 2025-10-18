@@ -19,6 +19,8 @@ import type * as actions from "../actions.js";
 import type * as contact from "../contact.js";
 import type * as createUser from "../createUser.js";
 import type * as crons from "../crons.js";
+import type * as internal_welcome from "../internal/welcome.js";
+import type * as internal_ from "../internal.js";
 import type * as reminders from "../reminders.js";
 import type * as resetTokens from "../resetTokens.js";
 import type * as types_user from "../types/user.js";
@@ -39,6 +41,8 @@ declare const fullApi: ApiFromModules<{
   contact: typeof contact;
   createUser: typeof createUser;
   crons: typeof crons;
+  "internal/welcome": typeof internal_welcome;
+  internal: typeof internal_;
   reminders: typeof reminders;
   resetTokens: typeof resetTokens;
   "types/user": typeof types_user;

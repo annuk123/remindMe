@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 
   category: "productivity",
-  alternates: {
+  alternates: {  
     canonical: "https://remindme.pixelui.studio",
   },
 };

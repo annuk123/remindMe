@@ -1,11 +1,12 @@
 import { action } from "./_generated/server";
 import { v } from "convex/values";
-import bcrypt from "bcryptjs";
-import { api } from "./_generated/api"; 
+import { api, internal } from "./_generated/api"; 
 import { internalAction } from "./_generated/server";
 import { Resend } from "resend";
 import ReminderEmail from "../src/components/emails/ReminderEmail"; 
 import { render } from "@react-email/render";
+import WelcomeEmail from "../src/components/emails/WelcomeEmail";
+// import { sendWelcomeEmail } from "./internal";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
@@ -15,10 +16,19 @@ export const createUserAction = action({
     await ctx.runMutation(api.users.createUser, {
       name: args.name,
       email: args.email,
-      password: args.password, // ✅ NO HASH HERE
+      password: args.password,
     });
+
+    // ✅ Send Welcome Email after signup
+//  await ctx.runAction(internal.welcome.sendWelcomeEmail, {
+//       to: args.email,
+//       name: args.name,
+//     });
+
+
   },
 });
+
 
 export const updateUserPasswordAction = action({
   args: { userId: v.id("users"), password: v.string() },
@@ -66,6 +76,29 @@ export const sendReminderEmail = internalAction({
     }
   },
 });
+
+//  // ✅ Internal action: Send Welcome email after signup
+// export const sendWelcomeEmail = internalAction({
+//   args: { to: v.string(), name: v.optional(v.string()) },
+//   handler: async (_ctx, args) => {
+//     try {
+//       const emailHtml = await render(
+//         WelcomeEmail({ name: args.name ?? "there" })
+//       );
+
+//       await resend.emails.send({
+//         from: "RemindMe <noreply@remindme.pixelui.studio>",
+//         to: args.to,
+//         subject: "🎉 Welcome to RemindMe",
+//         html: emailHtml,
+//       });
+
+//       console.log(`✅ Welcome email sent to ${args.to}`);
+//     } catch (error) {
+//       console.error("❌ Failed to send welcome email:", error);
+//     }
+//   },
+// });
 
 // import { action, internalAction } from "./_generated/server";
 // import { v } from "convex/values";
