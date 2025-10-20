@@ -27,7 +27,6 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
-
   // Scroll animation reference
   const scrollRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: scrollRef, offset: ["start end", "end start"], });
