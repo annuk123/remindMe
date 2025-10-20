@@ -60,16 +60,6 @@ export default function ReminderEmail({
               color: "#fff",
             }}
           >
-            <Img
-              src="https://remindme.pixelui.studio/logo.png"
-              alt="RemindMe Logo"
-              width="48"
-              height="48"
-              style={{
-                borderRadius: "12px",
-                marginBottom: "12px",
-              }}
-            />
             <Heading
               style={{
                 fontSize: "24px",

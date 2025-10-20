@@ -123,15 +123,19 @@ export default function FeaturesPage() {
             <p className="text-slate-600 mb-8">
               Create, edit, and track reminders in a clean, intuitive dashboard.
             </p>
-            <div className="relative rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-              <Image
-                src="/preview-dashboard.png" 
-                width={800}
-                height={800}
-                alt="RemindMe dashboard preview"
-                className="w-full object-cover"
-              />
-            </div>
+           <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-lg">
+ <video
+  src="https://res.cloudinary.com/dar54qs52/video/upload/f_auto,q_auto:eco/v1/Untitled_video_-_Made_with_Clipchamp_24_k5pfwt.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full aspect-video rounded-2xl shadow-lg"
+  preload="metadata"
+></video>
+
+</div>
+
           </div>
         </motion.section>
 

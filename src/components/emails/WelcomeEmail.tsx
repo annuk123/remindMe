@@ -11,11 +11,7 @@ import {
   Hr,
 } from "@react-email/components";
 
-export default function WelcomeEmail({
-  name,
-}: {
-  name?: string;
-}) {
+export default function WelcomeEmail({ name }: { name?: string }) {
   return (
     <Html>
       <Body
@@ -34,10 +30,10 @@ export default function WelcomeEmail({
             maxWidth: "600px",
             margin: "0 auto",
             overflow: "hidden",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
           }}
         >
-          {/* 🌈 Header / Branding */}
+          {/* Header / Branding */}
           <Section
             style={{
               background: "linear-gradient(90deg,#4F46E5,#6366F1,#8B5CF6)",
@@ -46,16 +42,7 @@ export default function WelcomeEmail({
               color: "#fff",
             }}
           >
-            <Img
-              src="https://remindme.pixelui.studio/logo.png"
-              alt="RemindMe Logo"
-              width="56"
-              height="56"
-              style={{
-                borderRadius: "14px",
-                marginBottom: "14px",
-              }}
-            />
+
             <Heading
               style={{
                 fontSize: "26px",
@@ -64,11 +51,11 @@ export default function WelcomeEmail({
                 letterSpacing: "-0.3px",
               }}
             >
-              Welcome to RemindMe 🎉
+              Welcome to RemindMe
             </Heading>
           </Section>
 
-          {/* 👋 Intro Section */}
+          {/* Intro */}
           <Section style={{ padding: "36px 40px 20px" }}>
             <Text
               style={{
@@ -78,7 +65,7 @@ export default function WelcomeEmail({
                 marginBottom: "12px",
               }}
             >
-              Hey {name ? name : "there"} 👋
+              Hi {name ? name : "there"},
             </Text>
 
             <Text
@@ -86,14 +73,12 @@ export default function WelcomeEmail({
                 fontSize: "16px",
                 color: "#4B5563",
                 lineHeight: "1.7",
-                marginBottom: "20px",
+                marginBottom: "24px",
               }}
             >
-              Welcome aboard! You’ve just joined a growing community of
-              productive minds who never miss what matters.  
-              <br />  
-              With <b>RemindMe</b>, managing your reminders becomes effortless —
-              schedule, organize, and get notified right when you need it.
+              We’re excited to have you on board. With <b>RemindMe</b>, keeping
+              track of what matters becomes effortless—set reminders, stay
+              organized, and focus on what truly matters.
             </Text>
 
             <div
@@ -113,9 +98,9 @@ export default function WelcomeEmail({
                   margin: 0,
                 }}
               >
-                ✅ Create reminders instantly  
-                ⏰ Receive beautifully branded email notifications  
-                🌐 Access your reminders anywhere, anytime
+                • Create reminders instantly <br />
+                • Receive timely, branded notifications <br />
+                • Access everything seamlessly across devices
               </Text>
             </div>
 
@@ -133,13 +118,13 @@ export default function WelcomeEmail({
                 letterSpacing: "0.3px",
               }}
             >
-              Open Your Dashboard →
+              Go to Dashboard
             </Link>
           </Section>
 
           <Hr style={{ borderColor: "#E5E7EB", margin: "28px 0 16px" }} />
 
-          {/* ✨ Footer */}
+          {/* Footer */}
           <Section style={{ textAlign: "center", padding: "0 32px 32px" }}>
             <Text
               style={{
@@ -148,7 +133,7 @@ export default function WelcomeEmail({
                 marginBottom: "6px",
               }}
             >
-              You’re receiving this email because you signed up for{" "}
+              You’re receiving this email because you recently signed up for{" "}
               <b>RemindMe</b>.
             </Text>
 
@@ -159,7 +144,7 @@ export default function WelcomeEmail({
                 marginBottom: "8px",
               }}
             >
-              Powered by <b>RemindMe</b>   
+              Built with care by the RemindMe team.
             </Text>
 
             <Link

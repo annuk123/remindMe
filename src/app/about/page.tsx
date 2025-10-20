@@ -58,13 +58,16 @@ export default function AboutPage() {
           className="relative bg-white rounded-3xl shadow-lg border border-blue-100 p-8"
         >
           <div className="absolute -top-5 -left-5 w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl opacity-10 blur-2xl" />
-          <Image
-            src="/preview-dashboard.png"
-            width={400}
-            height={400}
-            alt="RemindMe preview"
-            className="rounded-2xl shadow-md border border-blue-100"
-          />
+      <video
+  src="https://res.cloudinary.com/dar54qs52/video/upload/f_auto,q_auto:eco/v1/Untitled_video_-_Made_with_Clipchamp_24_k5pfwt.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full aspect-video rounded-2xl shadow-lg"
+  preload="metadata"
+></video>
+
         </motion.div>
       </section>
 

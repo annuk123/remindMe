@@ -1,8 +1,8 @@
 
 import { v } from "convex/values";
-import { internalAction } from "../_generated/server";
+import { internalAction } from "./_generated/server";
 import { render } from "@react-email/render";
-import WelcomeEmail from "../../src/components/emails/WelcomeEmail";
+import WelcomeEmail from "../src/components/emails/WelcomeEmail";
 import { Resend } from "resend";
  
  const resend = new Resend(process.env.RESEND_API_KEY!);
@@ -19,7 +19,7 @@ export const sendWelcomeEmail = internalAction({
       await resend.emails.send({
         from: "RemindMe <noreply@remindme.pixelui.studio>",
         to: args.to,
-        subject: "🎉 Welcome to RemindMe",
+        subject: " Welcome to RemindMe",
         html: emailHtml,
       });
 

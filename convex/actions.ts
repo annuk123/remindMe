@@ -20,10 +20,10 @@ export const createUserAction = action({
     });
 
     // ✅ Send Welcome Email after signup
-//  await ctx.runAction(internal.welcome.sendWelcomeEmail, {
-//       to: args.email,
-//       name: args.name,
-//     });
+ await ctx.runAction(internal.welcome.sendWelcomeEmail, {
+      to: args.email,
+      name: args.name,
+    });
 
 
   },

@@ -4,10 +4,9 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Loader2, Bell } from "lucide-react"; 
+import { Loader2, Bell } from "lucide-react";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
-
 
 export default function AuthPage() {
   const [email, setEmail] = useState("");
@@ -35,17 +34,18 @@ export default function AuthPage() {
     setLoading(false);
 
     if (res?.error) {
-      if (res?.error?.includes("Invalid password")) toast.error("Incorrect password 😬");
-      else if (res?.error?.includes("Missing credentials")) toast.warning("Email or password missing");
+      if (res?.error?.includes("Invalid password"))
+        toast.error("Incorrect password. Please try again.");
+      else if (res?.error?.includes("Missing credentials"))
+        toast.warning("Please fill in all required fields.");
       else toast.error(res?.error);
     } else {
       toast.success("Welcome back 👋", {
-        description: "Redirecting to your dashboard...",
+        description: "Redirecting you to your dashboard...",
       });
       setTimeout(() => router.push("/dashboard"), 1200);
     }
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 flex items-center justify-center px-4 relative overflow-hidden">
@@ -62,8 +62,8 @@ export default function AuthPage() {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
             RemindMe
           </h1>
-          <p className="text-gray-500 mt-1 text-sm">
-            Your smart reminder companion ✨
+          <p className="text-gray-500 mt-1 text-sm text-center">
+            Stay on top of what matters — smart reminders that work for you.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export default function AuthPage() {
         >
           <input
             type="text"
-            placeholder="Your name"
+            placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400 transition-all"
@@ -82,7 +82,7 @@ export default function AuthPage() {
 
           <input
             type="email"
-            placeholder="you@example.com"
+            placeholder="you@company.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400 transition-all"
@@ -93,7 +93,7 @@ export default function AuthPage() {
           <div className="relative w-full">
             <input
               type={showPassword ? "text" : "password"}
-              placeholder="••••••••"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border border-gray-200 p-3 pr-12 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400 transition-all text-slate-700"
@@ -118,7 +118,7 @@ export default function AuthPage() {
               href="/forgot-password"
               className="text-sm text-blue-600 hover:text-blue-700 hover:underline font-medium transition-colors"
             >
-              Forgot password?
+              Forgot your password?
             </Link>
           </div>
 
@@ -128,29 +128,29 @@ export default function AuthPage() {
           >
             {loading ? (
               <>
-                <Loader2 className="animate-spin w-5 h-5 mr-2" /> Please wait...
+                <Loader2 className="animate-spin w-5 h-5 mr-2" /> Signing you in...
               </>
             ) : (
-              "Continue →"
+              "Continue"
             )}
           </button>
         </form>
 
         {/* Footer */}
         <p className="text-sm text-gray-500 mt-4 text-center">
-          One click we’ll log you in or create your account automatically
+          We’ll automatically log you in or create your account — simple and secure.
         </p>
 
-        <div className="mt-6 text-xs text-gray-400">
+        <div className="mt-6 text-xs text-gray-400 text-center">
           <p>
             By continuing, you agree to our{" "}
             <Link
               href="/terms-of-service"
               className="text-blue-500 hover:underline"
             >
-              Terms
+              Terms of Service
             </Link>{" "}
-            &{" "}
+            and{" "}
             <Link
               href="/privacy-policy"
               className="text-blue-500 hover:underline"
@@ -164,5 +164,3 @@ export default function AuthPage() {
     </div>
   );
 }
-
-  
