@@ -11,7 +11,6 @@ import {
 import Link from "next/link";
 import Navbar from "@/components/Navbar/Navbar";
 import { ComparisonTable } from "@/components/ComparisionTable/ComparisonTable";
-import Image from "next/image";
 
 const features = [
   {

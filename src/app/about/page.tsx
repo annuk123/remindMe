@@ -5,8 +5,6 @@ import { Heart, Bell, Target, Users } from "lucide-react";
 import Navbar from "@/components/Navbar/Navbar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">

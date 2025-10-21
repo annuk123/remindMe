@@ -8,7 +8,6 @@ import {
   Text,
   Link,
   Hr,
-  Img,
 } from "@react-email/components";
 import { formatLocalTime } from "../../lib/formatLocalTime";
 
