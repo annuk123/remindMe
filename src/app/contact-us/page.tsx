@@ -86,11 +86,12 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="flex items-center gap-3">
               <Mail className="text-blue-600 w-5 h-5" />
               <a
-                href="mailto:anuk35168@gmail.com"
-                className="text-slate-700 hover:text-blue-600 transition font-medium"
-              >
-                anuk35168@gmail.com
-              </a>
+  href="mailto:support@remindme.pixelui.studio?subject=Support%20Request%20-%20RemindMe"
+  className="text-slate-700 hover:text-blue-600 transition font-medium"
+>
+  support@remindme.pixelui.studio
+</a>
+
             </div>
 
             <div className="flex items-center gap-3">
@@ -107,7 +108,6 @@ const handleSubmit = async (e: React.FormEvent) => {
 
             <div className="flex items-center gap-3">
               <MapPin className="text-blue-600 w-5 h-5" />
-              <p className="text-slate-700">Remote – India</p>
             </div>
           </div>
 
