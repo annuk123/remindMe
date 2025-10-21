@@ -7,7 +7,7 @@ import { Resend } from "resend";
  
  const resend = new Resend(process.env.RESEND_API_KEY!);
 
- // ✅ Internal action: Send Welcome email after signup
+ // Internal action: Send Welcome email after signup
 export const sendWelcomeEmail = internalAction({
   args: { to: v.string(), name: v.optional(v.string()) },
   handler: async (_ctx, args) => {

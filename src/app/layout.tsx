@@ -83,7 +83,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * ✅ Viewport settings (Next.js 15)
+ * Viewport settings (Next.js 15)
  * Move themeColor and colorScheme here
  */
 export const viewport: Viewport = {

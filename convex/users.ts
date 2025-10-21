@@ -24,7 +24,7 @@ export const createUser = mutation({
 
     if (existing) throw new Error("User already exists");
 
-    // ✅ Just store password hash directly
+    //  Just store password hash directly
     await ctx.db.insert("users", {
       name: args.name,
       email: args.email,

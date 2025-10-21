@@ -12,7 +12,7 @@ export default function FeedbackPage() {
     "idle"
   );
 
-  const addFeedback = useMutation(api.contact.addContact);
+  const addContact = useMutation(api.contact.addContact);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ export default function FeedbackPage() {
 
     try {
       //  Save to Convex
-      // await addFeedback(form);
+      await addContact(form);
 
       // Send email to you
       await fetch("/api/send-feedback", {
