@@ -82,7 +82,7 @@ const sampleSubscriptionName = "Figma Pro";
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          <Link href="/get-started">
+          <Link href="/login">
             <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:scale-[1.04] transition">
               Get Started Free
             </Button>
