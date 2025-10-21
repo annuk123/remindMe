@@ -87,7 +87,7 @@ export default function Navbar() {
   <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 </Button>
           </Link>
-          <Link href="/get-started">
+          <Link href="/login">
             <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white rounded-xl px-6 py-2 shadow-md hover:shadow-blue-200/50 transition-transform duration-300 hover:scale-[1.05]">
               Get Started Free
             </Button>
