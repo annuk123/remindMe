@@ -55,62 +55,62 @@ const sampleSubscriptionName = "Figma Pro";
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative text-center pt-32 pb-24 px-6 overflow-hidden">
-        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-200/30 blur-3xl rounded-full" />
+<section className="relative text-center pt-32 pb-24 px-6 overflow-hidden">
+  <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-200/30 blur-3xl rounded-full pointer-events-none" />
 
-        <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight mb-6"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Remember What Matters.
-        </motion.h1>
+  <motion.h1
+    className="text-5xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight mb-6"
+    initial={{ opacity: 0, y: -30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+  >
+    Remember What Matters.
+  </motion.h1>
 
-        <motion.p
-          className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 font-medium mb-10"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          Built for students & young professionals — manage assignments, meetings, and daily tasks without stress.
-        </motion.p>
+  <motion.p
+    className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 font-medium mb-10"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.6 }}
+  >
+    Built for students & young professionals — manage assignments, meetings, and daily tasks without stress.
+  </motion.p>
 
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-        >
-         
-            <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:scale-[1.04] transition">
-               <Link href="/login">
-              Get Started Free
-              </Link>
-            </Button>
-         
-          <Button
-            variant="outline"
-            className="border-blue-300 text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-2xl font-medium"
-          >
-            Try Demo
-          </Button>
-        </motion.div>
+  <motion.div
+    className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center"
+    initial={{ opacity: 0, scale: 0.95 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.4, duration: 0.5 }}
+  >
+    <Button
+      asChild
+      className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:scale-[1.04] transition"
+    >
+      <Link href="/login">Get Started Free</Link>
+    </Button>
 
-        {/* Typing demo */}
-        <motion.div
-          className="mt-14 bg-white/90 backdrop-blur-xl border border-blue-100 shadow-2xl rounded-2xl max-w-xl mx-auto p-6 text-left font-mono text-slate-700 whitespace-pre-wrap"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          <span className="text-sm font-semibold text-blue-600 mb-2 block">
-            Smart Reminder
-          </span>
-          {typedText}
-          <span className="animate-pulse text-blue-500">|</span>
-        </motion.div>
-      </section>
+    <Button
+      variant="outline"
+      className="border-blue-300 text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-2xl font-medium"
+    >
+      Try Demo
+    </Button>
+  </motion.div>
+
+  <motion.div
+    className="mt-14 bg-white/90 backdrop-blur-xl border border-blue-100 shadow-2xl rounded-2xl max-w-xl mx-auto p-6 text-left font-mono text-slate-700 whitespace-pre-wrap"
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.6, duration: 0.6 }}
+  >
+    <span className="text-sm font-semibold text-blue-600 mb-2 block">
+      Smart Reminder
+    </span>
+    {typedText}
+    <span className="animate-pulse text-blue-500">|</span>
+  </motion.div>
+</section>
+
 
       {/* Floating Reminder Cards Section */}
 <section
