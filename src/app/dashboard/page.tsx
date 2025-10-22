@@ -142,7 +142,7 @@ export default function DashboardPage() {
       {/* Floating Add Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all"
         aria-label="Add Reminder"
       >
         <Plus className="w-6 h-6" />
